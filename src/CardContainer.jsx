@@ -13,11 +13,6 @@ function CardContainer({ items }) {
         ages={items.age}
         ranks={items.ranking}
         onClick={() => setIsOpen(true)}
-        toModal={() =>
-          setTwiceItems((twiceItems) => {
-            return [{ ...items }];
-          })
-        }
       />
       <Modal
         images={items.img}
