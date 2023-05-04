@@ -1,0 +1,230 @@
+diff --git a/src/App.jsx b/src/App.jsx
+index fac51d2..0e9559a 100644
+--- a/src/App.jsx
++++ b/src/App.jsx
+@@ -1,61 +1,21 @@
+-import { useState } from 'react'
+-import React from "react"
+-import './App.css'
+-import Navbar from "./Navbar.jsx"
+-import data from "./Twicedatabase"
+-import Cards from "./Cards.jsx"
+-import Modal from "./modal.jsx"
++import React from "react";
++import "./App.css";
++import Navbar from "./Navbar.jsx";
++import data from "./Twicedatabase";
++import Cards from "./Cards.jsx";
++import Modal from "./Modal.jsx";
++import CardContainer from "./CardContainer";
+ function App() {
+-  const [isOpen,setIsOpen] = React.useState(false)
+-  const [twiceItems, setTwiceItems] = React.useState({})
+- 
++  const cards = data.map((items) => {
++    return <CardContainer items={items} key={items.img.toString()} />;
++  });
+ 
+-
+-  const cards = data.map(items => {
+-    return(
+-      <div>
+-    <Cards 
+-      image = {items.img}
+-      names = {items.name}
+-      ages = {items.age} 
+-      ranks = {items.ranking}
+-      onClose = {() => setIsOpen(true)}
+-      toModal = {() => setTwiceItems( twiceItems => {
+-        return [{...items}]
+-       
+-      })}
+-      
+-
+- />
+- <Modal 
+-      images = {setTwiceItems.img}
+-      
+-      names = {setTwiceItems.name}
+-      ages = {setTwiceItems.age} 
+-      ranks = {setTwiceItems.ranking}
+-      open = {isOpen}
+-      />
+- 
+- </div>
+- 
+-    
+-    
+-
+-    )})
+-  return(
+-    <div className = "maincontainer">
+-      
++  return (
++    <div className="maincontainer">
+       <Navbar />
+-      <section className = "cardsec">
+-      {cards}
+-
+-      </section>
+-      
+-      
+-      
+-
++      <section className="cardsec">{cards}</section>
+     </div>
+-  )
++  );
+ }
+ 
+-export default App
++export default App;
+diff --git a/src/Cards.jsx b/src/Cards.jsx
+index deef9e2..0c98c9a 100644
+--- a/src/Cards.jsx
++++ b/src/Cards.jsx
+@@ -1,28 +1,21 @@
+-import React from "react"
++import React from "react";
+ 
+- function Cards(props){ 
+-
+-
+-    
+-    
+-
+-   
+-    return(
+-        <div className =  "cardiv" id = "twiceCardDiv" onClick = {props.onClose}>
+-    <div className = "card">
+-        
+-        <img className = "img" src = {props.image} />
+-        <p className = "name">Name:  {props.names}</p>
+-        <p className = "age"><b>Age: </b>{props.ages}</p>
+-        <p className = "ranking"><b>Ranking: </b>#{props.ranks}</p>
+-        
+-
+-
+-    </div>
+-  
++function Cards(props) {
++  return (
++    <div className="cardiv" id="twiceCardDiv" onClick={props.onClick}>
++      <div className="card">
++        <img className="img" src={props.image} />
++        <p className="name">Name: {props.names}</p>
++        <p className="age">
++          <b>Age: </b>
++          {props.ages}
++        </p>
++        <p className="ranking">
++          <b>Ranking: </b>#{props.ranks}
++        </p>
++      </div>
+     </div>
+-   
+-    )
+-
++  );
+ }
+-export default Cards
+\ No newline at end of file
++
++export default Cards;
+diff --git a/src/Navbar.jsx b/src/Navbar.jsx
+index 755835c..884924d 100644
+--- a/src/Navbar.jsx
++++ b/src/Navbar.jsx
+@@ -1,15 +1,15 @@
+-import React from "react"
+-import './App.css'
+-function Navbar(){
+-    return(
+-        <div className = "navContainer">
+-            <header>
+-        <nav className = "Navheader">
+-        <img className = "logo" src = "/images/logo.png"/>
+-        <h1 className = "Navtitle">Twice Database</h1>
++import React from "react";
++import "./App.css";
++function Navbar() {
++  return (
++    <div className="navContainer">
++      <header>
++        <nav className="Navheader">
++          <img className="logo" src="/images/logo.png" />
++          <h1 className="Navtitle">Twice Database</h1>
+         </nav>
+-        </header>
+-        </div>
+-    )
++      </header>
++    </div>
++  );
+ }
+-export default Navbar
+\ No newline at end of file
++export default Navbar;
+diff --git a/src/main.jsx b/src/main.jsx
+index b86bfcb..3f6663a 100644
+--- a/src/main.jsx
++++ b/src/main.jsx
+@@ -1,10 +1,10 @@
+-import React from 'react'
+-import ReactDOM from 'react-dom/client'
+-import App from './App.jsx'
+-import './index.css'
++import React from "react";
++import ReactDOM from "react-dom/client";
++import App from "./App.jsx";
++import "./index.css";
+ 
+-ReactDOM.createRoot(document.getElementById('root')).render(
+-  <div id = "root">
++ReactDOM.createRoot(document.getElementById("root")).render(
++  <div id="root">
+     <App />
+-  </div>,
+-)
++  </div>
++);
+diff --git a/src/modal.jsx b/src/modal.jsx
+index 34830b9..328f520 100644
+--- a/src/modal.jsx
++++ b/src/modal.jsx
+@@ -1,17 +1,18 @@
+-import React from "react"
+-export default function Modal(props){
+-    
+- 
+-if (!props.open) return null
++import React from "react";
++export default function Modal(props) {
++  if (!props.open) return null;
+ 
+-    return (
+-        <div className = "modalDiv">
+-                 
+-        <img className = "imgPop" src = {props.images} />
+-        <p className = "namePop">Name:  {props.names}</p>
+-        <p className = "agePop"><b>Age: </b>{props.ages}</p>
+-        <p className = "rankingPop"><b>Ranking: </b>#{props.ranks}</p>
+-        
+-        </div>
+-    )
+-}
+\ No newline at end of file
++  return (
++    <div className="modalDiv" onClick={props.onClick}>
++      <img className="imgPop" src={props.images} />
++      <p className="namePop">Name: {props.names}</p>
++      <p className="agePop">
++        <b>Age: </b>
++        {props.ages}
++      </p>
++      <p className="rankingPop">
++        <b>Ranking: </b>#{props.ranks}
++      </p>
++    </div>
++  );
++}
