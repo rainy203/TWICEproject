@@ -1,9 +1,6 @@
-import React from "react";
 import "./App.css";
 import Navbar from "./Navbar.jsx";
 import data from "./Twicedatabase";
-import Cards from "./Cards.jsx";
-import Modal from "./Modal.jsx";
 import CardContainer from "./CardContainer";
 function App() {
   const cards = data.map((items) => {
