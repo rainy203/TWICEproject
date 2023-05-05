@@ -110,14 +110,60 @@ margin-top: 2em;
 
 .modalDiv{
   position:fixed;
+  display:flex;
+  align-items: center;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: rgb(255, 255, 255);
-  border: 1px solid black;
+  font-family: "Inter";
+  
   width:80%;
   height:80%;
-  z-index: 10000
+  z-index: 10000;
+ border: 1px transparent;
+ border-radius: 20px;
+}
+.imgPop{
+  width:20em;
+ 
+}
+.modalContent{
+  padding: 2em;
+  display:flex;
+  border: 4px solid #FF99cc;
+  border-radius: 2em;
+  margin-left: 2em;
+  
 
+  
+
+
+}
+.descPop{
+  display:flex;
+  flex-direction: column;
+  padding-left:1em;
+  font-size: 20px;
+  
+}
+.bioPop{
+  max-width:42em;
+  max-height: 35em;
+  margin-left:5em;
+  border:5px solid #f9cc85;
+  border-radius: 20px;
+  margin-right:1em;
+
+}
+.headerPop{
+  font-size: 24px;
+  margin-left:2em;
+}
+.contentPop{
+  font-size: 16px;
+  line-height:200%;
+  margin-left:2em;
+  
 }
 

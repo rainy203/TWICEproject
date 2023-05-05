@@ -1,6 +1,6 @@
 import React from "react";
 import Cards from "./Cards";
-import Modal from "./Modal";
+import Modal from "./modal";
 
 function CardContainer({ items }) {
   console.log(items);
@@ -20,6 +20,7 @@ function CardContainer({ items }) {
         ages={items.age}
         ranks={items.ranking}
         open={isOpen}
+        bio = {items.description}
         onClick={() => setIsOpen(false)}
       />
     </>
