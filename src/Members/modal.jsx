@@ -2,7 +2,6 @@ import React from "react";
 
 
 
-
 const OVERLAY_STYLES = {
   position: 'fixed',
   top:0,
@@ -10,10 +9,31 @@ const OVERLAY_STYLES = {
   left:0,
   right:0,
   backgroundColor: 'rgba(0,0,0,0.7)'
-}
-export default function Modal(props) {
-  if (!props.open) return null;
 
+}
+
+
+
+
+
+
+
+export default function Modal(props) {
+
+ 
+
+  if (!props.open) {
+    document.body.style.overflow = 'unset'
+    return null;
+  }
+
+  else if (props.open === true){
+    document.body.style.overflow = 'hidden'
+  }
+  
+
+
+  
   return (
     <>
     <div style = {OVERLAY_STYLES} onClick={props.onClick} />
