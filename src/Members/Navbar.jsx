@@ -1,19 +1,20 @@
 import React from "react";
 import "./App.css";
+import { Link } from "react-router-dom"
 function Navbar() {
   return (
     <div className="navContainer">
       <header>
         <nav className="Navheader">
-          <a href = "index.html">
+          <Link to ="/">
           <img className="logo" src="/images/logo.png" />
-          </a>
+          </Link>
           <h1 className="Navtitle">Twice Database</h1>
 
           <span className = "NavElements">
 
 
-          <a href = "/src/Song/songs.html" className = "NavSong">
+          <Link to = "/songs" className = "NavSong">
             <div className = "hoverDiv">
 
             <div className = "hoverDivAni">
@@ -22,13 +23,14 @@ function Navbar() {
           
             </div>
             </div>
-            </a>
+        
+            </Link>
             
 
           
 
 
-            <a href = "members.html" className = "NavMembers">
+            <Link to = "/" className = "NavMembers">
             <div className = "hoverDiv1">
             <div className = "hoverDivAni1">
             
@@ -36,7 +38,7 @@ function Navbar() {
            
             </div>
             </div>
-            </a>
+            </Link>
 
             
 

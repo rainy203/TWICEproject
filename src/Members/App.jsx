@@ -1,17 +1,27 @@
 import "./App.css";
-import Navbar from "./Navbar.jsx";
-import data from "./Twicedatabase";
-import CardContainer from "./CardContainer";
+import Home  from "./Home.jsx"
+import Navbar from "./Navbar"
+import  SongApp from "/src/Song/SongApp.jsx"
+import { Route, Routes } from "react-router-dom"
+
+
 function App() {
-  const cards = data.map((items) => {
-    return <CardContainer items={items} key={items.img.toString()} />;
-  });
 
   return (
-    <div className="maincontainer">
-      <Navbar />
-      <section className="cardsec">{cards}</section>
+    <div>
+    <Navbar />
+
+    <Routes>
+    <Route path = "/" element = {<Home />}></Route>
+    <Route path = "/songs" element = {<SongApp />}> </Route>
+
+    </Routes>
+    
+    
+    
+    
     </div>
+   
   );
 }
 
