@@ -1,20 +1,20 @@
 import React from "react";
 import "./App.css";
-import { Link } from "react-router-dom"
+import { Link, NavLink } from "react-router-dom"
 function Navbar() {
   return (
     <div className="navContainer">
       <header>
         <nav className="Navheader">
-          <Link to ="/">
+          <NavLink to ="/">
           <img className="logo" src="/images/logo.png" />
-          </Link>
+          </NavLink>
           <h1 className="Navtitle">Twice Database</h1>
 
           <span className = "NavElements">
 
 
-          <Link to = "/songs" className = "NavSong">
+          <NavLink to = "/songs">
             <div className = "hoverDiv">
 
             <div className = "hoverDivAni">
@@ -24,13 +24,13 @@ function Navbar() {
             </div>
             </div>
         
-            </Link>
+            </NavLink>
             
 
           
 
 
-            <Link to = "/" className = "NavMembers">
+            <NavLink to = "/" className = "NavMembers">
             <div className = "hoverDiv1">
             <div className = "hoverDivAni1">
             
@@ -38,7 +38,7 @@ function Navbar() {
            
             </div>
             </div>
-            </Link>
+            </NavLink>
 
             
 
